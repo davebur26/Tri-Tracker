@@ -1,5 +1,8 @@
 package com.example.davidburnett.tritracker;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 /**
  * Created by davidburnett on 22/09/2017.
  */
@@ -9,9 +12,9 @@ public class Workout {
     private String name;
     private Discipline discipline;
     private String dateString;
-    //    LocalDate date;
+    private LocalDate date;
     private int distance;
-    //    LocalTime time;
+    private LocalTime time;
     private String timeString;
 
 
@@ -22,7 +25,7 @@ public class Workout {
         this.timeString = timeString;
         this.discipline = discipline;
 //        time = new Time(timeString);
-//        date = LocalDate.parse(dateString);
+        date = LocalDate.parse(dateString);
 
     }
 
