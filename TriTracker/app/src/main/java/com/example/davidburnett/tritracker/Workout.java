@@ -1,23 +1,21 @@
 package com.example.davidburnett.tritracker;
 
-
-
 /**
  * Created by davidburnett on 22/09/2017.
  */
 
-public class Activity{
+public class Workout {
 
     private String name;
     private Discipline discipline;
     private String dateString;
     //    LocalDate date;
     private int distance;
-//    LocalTime time;
+    //    LocalTime time;
     private String timeString;
 
 
-    public Activity(String name, Discipline discipline, String dateString, int distance, String timeString){
+    public Workout(String name, Discipline discipline, String dateString, int distance, String timeString){
         this.name = name;
         this.dateString = dateString;
         this.distance = distance;
