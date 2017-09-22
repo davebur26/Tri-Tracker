@@ -1,3 +1,5 @@
+import android.app.Activity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,7 +11,7 @@ public class Athlete {
 
     private String name;
     private ArrayList<Activity> disciplineLog;
-    private HashMap<Discipline, disciplineLog>activityLog;
+    private HashMap<String, ArrayList<Activity>> activityLog;
 
     public Athlete (String name){
         this.name = name;
