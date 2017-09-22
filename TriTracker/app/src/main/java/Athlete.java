@@ -7,9 +7,9 @@ import java.util.HashMap;
 
 public class Athlete {
 
-    String name;
-    ArrayList<Activity>disciplineLog;
-    HashMap<Discipline, disciplineLog>activityLog;
+    private String name;
+    private ArrayList<Activity> disciplineLog;
+    private HashMap<Discipline, disciplineLog>activityLog;
 
     public Athlete (String name){
         this.name = name;
