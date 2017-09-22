@@ -21,4 +21,19 @@ public class Activity {
         this.time = time;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public Time getTime() {
+        return time;
+    }
 }
