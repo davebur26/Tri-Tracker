@@ -1,9 +1,10 @@
 package com.example.davidburnett.tritracker;
 
 
-import java.sql.Time;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -17,8 +18,8 @@ public class Workout {
     private String name;
     private Discipline discipline;
     private String dateString;
-    private Date date;
-    private Date time;
+    private Calendar date;
+    private Calendar time;
     private int distance;
 
     private String timeString;
@@ -43,27 +44,34 @@ public class Workout {
         return discipline;
     }
 
-    public String getDate() {
-        return dateString;
+    public Calendar getDate() {
+        return date;
     }
 
     public int getDistance() {
         return distance;
     }
 
-    public String getTime() {
-        return timeString;
+    public Calendar getTime() {
+        return time;
     }
 
     public void convertDateTimeFromString() {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        date = Calendar.getInstance();
+
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
+        time = Calendar.getInstance();
+        
         try {
-            date = dateFormat.parse(dateString);
-            time = timeFormat.parse(timeString);
+            date.setTime(dateFormat.parse(dateString));
+            time.setTime(timeFormat.parse(timeString));
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
     }
+
+
 }
