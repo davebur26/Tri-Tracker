@@ -1,7 +1,12 @@
 package com.example.davidburnett.tritracker;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by davidburnett on 22/09/2017.
@@ -12,9 +17,10 @@ public class Workout {
     private String name;
     private Discipline discipline;
     private String dateString;
-    private LocalDate date;
+    private Date date;
+    private Date time;
     private int distance;
-    private LocalTime time;
+
     private String timeString;
 
 
@@ -24,9 +30,9 @@ public class Workout {
         this.distance = distance;
         this.timeString = timeString;
         this.discipline = discipline;
-//        time = new Time(timeString);
-        date = LocalDate.parse(dateString);
-
+        date = null;
+        time = null;
+        convertDateTimeFromString();
     }
 
     public String getName() {
@@ -47,5 +53,17 @@ public class Workout {
 
     public String getTime() {
         return timeString;
+    }
+
+    public void convertDateTimeFromString() {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        try {
+            date = dateFormat.parse(dateString);
+            time = timeFormat.parse(timeString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 }
