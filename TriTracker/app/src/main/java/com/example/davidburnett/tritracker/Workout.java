@@ -1,12 +1,12 @@
 package com.example.davidburnett.tritracker;
 
 
-import java.text.DateFormat;
+import android.support.annotation.NonNull;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.Comparator;
 import java.util.Locale;
 
 /**
@@ -25,7 +25,7 @@ public class Workout {
     private String timeString;
 
 
-    public Workout(String name, Discipline discipline, String dateString, int distance, String timeString){
+    public Workout(String name, Discipline discipline, String dateString, int distance, String timeString) {
         this.name = name;
         this.dateString = dateString;
         this.distance = distance;
@@ -35,6 +35,7 @@ public class Workout {
         time = null;
         convertDateTimeFromString();
     }
+
 
     public String getName() {
         return name;
@@ -62,7 +63,7 @@ public class Workout {
 
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
         time = Calendar.getInstance();
-        
+
         try {
             date.setTime(dateFormat.parse(dateString));
             time.setTime(timeFormat.parse(timeString));
@@ -71,6 +72,19 @@ public class Workout {
             e.printStackTrace();
         }
 
+    }
+
+    public static Comparator<Workout> distanceComparator = new Comparator<Workout>() {
+        @Override
+        public int compare(Workout workoutA, Workout workoutB) {
+            return (workoutB.getDistance() < workoutA.getDistance() ? -1 :
+                    (workoutB.getDistance() == workoutA.getDistance() ? 0 : 1));
+        }
+    };
+
+    @Override
+    public String toString() {
+        return "Distance:" + this.distance;
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.davidburnett.tritracker;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 /**
@@ -18,6 +19,7 @@ public class Athlete {
             disciplineLog = new ArrayList<>();
             activityLog = new HashMap<>();
         }
+
 
         public String getName() {
             return name;

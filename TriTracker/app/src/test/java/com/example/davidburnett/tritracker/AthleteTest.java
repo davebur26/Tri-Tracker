@@ -3,6 +3,8 @@ package com.example.davidburnett.tritracker;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Collections;
+
 import static org.junit.Assert.*;
 
 /**
@@ -38,6 +40,7 @@ public class AthleteTest {
         assertEquals(workout3,athlete.getDisciplineLog(Discipline.BIKE).get(0));
         assertEquals(true, athlete.getActivityLog().containsKey(Discipline.BIKE));
         assertEquals(false, athlete.getActivityLog().containsKey(Discipline.SWIM));
+
     }
 
 }
