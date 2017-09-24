@@ -3,6 +3,9 @@ package com.example.davidburnett.tritracker.Statistics;
 import com.example.davidburnett.tritracker.Analyser;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
+import com.example.davidburnett.tritracker.Sorter.GroupSorter;
+import com.example.davidburnett.tritracker.Sorter.Order;
+import com.example.davidburnett.tritracker.Sorter.Sorter;
 import com.example.davidburnett.tritracker.Workout;
 
 import org.junit.Before;
@@ -31,6 +34,12 @@ public class LongestRunTest {
 
     private LongestRun longestRun;
 
+    ArrayList<Athlete> athletesToAnalyse;
+    ArrayList<ArrayList<Workout>>sortedWorkoutByDistance;
+
+    Sorter sorter;
+    GroupSorter groupSorter;
+
     @Before
     public void before(){
 
@@ -40,7 +49,7 @@ public class LongestRunTest {
         athlete1 = new Athlete("Dave");
 
         workout4 = new Workout("lunch run", Discipline.RUN, "04/03/16",15000, "01:00:12");
-        workout5 = new Workout("night swim", Discipline.SWIM, "10/06/16",25000, "01:45:29");
+        workout5 = new Workout("night swim", Discipline.RUN, "10/06/16",25000, "01:45:29");
         workout6 = new Workout("afternoon bike", Discipline.BIKE, "16/02/16",100000, "07:00:00");
         athlete2 = new Athlete("Neil");
 
@@ -52,10 +61,30 @@ public class LongestRunTest {
         athlete2.addActivityToLog(workout5);
         athlete2.addActivityToLog(workout6);
 
+        athletesToAnalyse = new ArrayList<>();
+        athletesToAnalyse.add(athlete1);
+        athletesToAnalyse.add(athlete2);
 
-        longestRun = new LongestRun();
 
-        analyser = new Analyser();
+//        Sort Individual users runs so index 0 is longest
+        for (Athlete athlete : athletesToAnalyse){
+            sorter = new Sorter(athlete.getDisciplineLog(Discipline.RUN));
+            ArrayList<Workout>sortedWorkoutByDistance = sorter.workoutByDistance(Order.HiToLo);
+            System.out.println(sortedWorkoutByDistance);
+        }
+
+        groupSorter = new GroupSorter(athletesToAnalyse, Discipline.RUN);
+        sortedWorkoutByDistance = groupSorter.groupWorkoutByDistance(Order.HiToLo);
+
+        System.out.println(sortedWorkoutByDistance);
+
+
+        for (Athlete athlete : athletesToAnalyse) {
+            System.out.println(athlete.getName());
+            System.out.println(athlete.getDisciplineLog(Discipline.RUN));
+        }
+
+
 
 
 
@@ -65,13 +94,17 @@ public class LongestRunTest {
     @Test
     public void testLongestRun(){
 
-        ArrayList<Athlete> athletesToAnalyse = new ArrayList<>();
-        athletesToAnalyse.add(athlete1);
-        athletesToAnalyse.add(athlete2);
 
-//        ArrayList<Athlete> analysedAthletes = longestRun.statForAthletes(athletesToAnalyse);
 
-//        assertEquals(athlete1, analysedAthletes.get(0));
+
+
+
+
+
+
+
+
+
     }
 
 }

@@ -1,7 +1,5 @@
 package com.example.davidburnett.tritracker.Sorter;
 
-import android.app.Activity;
-
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
 import com.example.davidburnett.tritracker.Workout;
@@ -22,29 +20,37 @@ public class DistanceSorterTest {
     Workout workout1;
     Workout workout2;
     Workout workout3;
-    DistanceSorter distanceSorter;
+    Sorter sorter;
+    ArrayList<Workout> workouts;
+    ArrayList<Workout> sortedWorkoutByDistance;
 
 
     @Before
     public void before() {
         workout1 = new Workout("morning run", Discipline.RUN, "22/09/17", 40000, "00:45:12");
         workout2 = new Workout("afternoon run", Discipline.RUN, "22/09/17", 20000, "01:30:52");
-        workout3 = new Workout("afternoon bike", Discipline.BIKE, "22/09/17", 50000, "03:04:23");
-        activities = new ArrayList<>();
-        activities.add(workout1);
-        activities.add(workout2);
-        activities.add(workout3);
-        distanceSorter = new DistanceSorter(activities);
+        workout3 = new Workout("afternoon bike", Discipline.RUN, "22/09/17", 50000, "03:04:23");
+        Athlete athlete = new Athlete("Dave");
+        athlete.addActivityToLog(workout1);
+        athlete.addActivityToLog(workout2);
+        athlete.addActivityToLog(workout3);
+        workouts = athlete.getDisciplineLog(Discipline.RUN);
+
+        sorter = new Sorter(workouts);
+        sortedWorkoutByDistance = sorter.workoutByDistance(Order.HiToLo);
+        System.out.println(sortedWorkoutByDistance);
+        System.out.println(athlete.getDisciplineLog(Discipline.RUN));
+
+
+
+//        System.out.println(workouts);
     }
 
 
 
     @Test
         public void testArrayHasWorkouts(){
-        assertEquals(3, activities.size());
-        ArrayList<Workout>sortedWorkoutByDistance = distanceSorter.getSortedWorkoutByDistance(Order.HiToLo);
-        for (Workout workout: sortedWorkoutByDistance){
-            System.out.println(workout.getDistance());
+        assertEquals(3, workouts.size());
+
         }
     }
-}
