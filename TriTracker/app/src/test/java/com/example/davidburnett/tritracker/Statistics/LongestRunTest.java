@@ -3,6 +3,7 @@ package com.example.davidburnett.tritracker.Statistics;
 import com.example.davidburnett.tritracker.Analyser;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
+import com.example.davidburnett.tritracker.Sorter.AthleteDistanceComparator;
 import com.example.davidburnett.tritracker.Sorter.GroupSorter;
 import com.example.davidburnett.tritracker.Sorter.Order;
 import com.example.davidburnett.tritracker.Sorter.Sorter;
@@ -12,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static org.junit.Assert.*;
 
@@ -30,15 +32,10 @@ public class LongestRunTest {
     private Workout workout5;
     private Workout workout6;
 
-    private Analyser analyser;
-
     private LongestRun longestRun;
 
     ArrayList<Athlete> athletesToAnalyse;
-    ArrayList<ArrayList<Workout>>sortedWorkoutByDistance;
 
-    Sorter sorter;
-    GroupSorter groupSorter;
 
     @Before
     public void before(){
@@ -65,34 +62,15 @@ public class LongestRunTest {
         athletesToAnalyse.add(athlete1);
         athletesToAnalyse.add(athlete2);
 
-
-//        Sort Individual users runs so index 0 is longest
-        for (Athlete athlete : athletesToAnalyse){
-            sorter = new Sorter(athlete.getDisciplineLog(Discipline.RUN));
-            ArrayList<Workout>sortedWorkoutByDistance = sorter.workoutByDistance(Order.HiToLo);
-            System.out.println(sortedWorkoutByDistance);
-        }
-
-        groupSorter = new GroupSorter(athletesToAnalyse, Discipline.RUN);
-        sortedWorkoutByDistance = groupSorter.groupWorkoutByDistance(Order.HiToLo);
-
-        System.out.println(sortedWorkoutByDistance);
-
-
-        for (Athlete athlete : athletesToAnalyse) {
-            System.out.println(athlete.getName());
-            System.out.println(athlete.getDisciplineLog(Discipline.RUN));
-        }
-
-
-
-
-
+        longestRun = new LongestRun(athletesToAnalyse);
     }
 
 
     @Test
     public void testLongestRun(){
+        assertEquals(athlete2, longestRun.results().get(0));
+        assertEquals(25000, longestRun.results().get(0).getDisciplineLog(Discipline.RUN).get(0).getDistance());
+
 
 
 

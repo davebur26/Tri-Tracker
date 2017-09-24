@@ -27,13 +27,13 @@ public class Analyser{
         analysedAthletes.add(athlete);
     }
 
-    public static Comparator<ArrayList<Workout>> groupDistanceComparator = new Comparator<ArrayList<Workout>>() {
-        @Override
-        public int compare(ArrayList<Workout> workoutA, ArrayList<Workout> workoutB) {
-            return (workoutB.get(0).getDistance() < workoutA.get(0).getDistance() ? -1 :
-                    (workoutB.get(0).getDistance() == workoutA.get(0).getDistance() ? 0 : 1));
-        }
-    };
+//    public static Comparator<ArrayList<Athlete>> groupDistanceComparator = new Comparator<ArrayList<Athlete>>() {
+//        @Override
+//        public int compare(ArrayList<Athlete> athleteA, ArrayList<Athlete> athleteB) {
+//            return (athleteB.get(0).getDisciplineLog(Discipline.RUN).get(0).getDistance() < athleteA.get(1).getDisciplineLog(Discipline.RUN).get(0).getDistance() ? -1 :
+//                    (athleteB.get(0).getDisciplineLog(Discipline.RUN).get(0).getDistance() < athleteA.get(1).getDisciplineLog(Discipline.RUN).get(0).getDistance() ? 0 : 1));
+//        }
+//    };
 
 //    @Override
 //    public String toString() {

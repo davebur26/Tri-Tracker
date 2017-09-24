@@ -4,6 +4,9 @@ import android.app.Activity;
 
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
+import com.example.davidburnett.tritracker.Sorter.AthleteDistanceComparator;
+import com.example.davidburnett.tritracker.Sorter.Order;
+import com.example.davidburnett.tritracker.Sorter.Sorter;
 import com.example.davidburnett.tritracker.Workout;
 
 import java.util.ArrayList;
@@ -16,26 +19,40 @@ import java.util.Comparator;
 
 public class LongestRun{       //implements Statistic {
 
+    ArrayList<Athlete> athletesToAnalyse;
+    Sorter sorter;
+    ArrayList<Athlete> sorted;
 
-//    public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
-//        int longestRun = 0;
-//        ArrayList<Athlete>analysedAthletes = new ArrayList<>();
-//
-//
-//
-//        for (Athlete athlete: athletesToAnalyse){
-//            ArrayList<Workout>athleteRunArray = athlete.getDisciplineLog(Discipline.RUN);
-//
-//            });
-//
-//
-//
-//
-//        }
-//
-//       return analysedAthletes;
-//
-//
-//    }
+    public LongestRun(ArrayList<Athlete> athletesToAnalyse){
+        this.athletesToAnalyse = new ArrayList<>(athletesToAnalyse);
+        sorted = sortAthletesIndividualWorkoutsLongestFirst(this.athletesToAnalyse);
+        rankAthletesHiToLo();
+    }
+
+    public ArrayList<Athlete> sortAthletesIndividualWorkoutsLongestFirst(ArrayList<Athlete> athletesToAnalyse){
+        for (Athlete athlete : athletesToAnalyse) {
+            sorter = new Sorter(athlete.getDisciplineLog(Discipline.RUN));
+            sorter.workoutByDistance(Order.HiToLo);
+            System.out.println(athlete.getDisciplineLog(Discipline.RUN));
+
+    }
+        return athletesToAnalyse;
+
+    }
+
+    public void rankAthletesHiToLo(){
+
+        Collections.sort(sorted, new AthleteDistanceComparator(Discipline.RUN));
+        for (Athlete athlete: athletesToAnalyse){
+            System.out.println(athlete.getDisciplineLog(Discipline.RUN));
+        }
+
+    }
+
+    public ArrayList<Athlete> results(){
+        return this.athletesToAnalyse;
+    }
+
+
 
 }
