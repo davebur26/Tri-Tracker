@@ -19,9 +19,9 @@ public class AthleteTest {
 
     @Before
     public void before(){
-        workout1 = new Workout("morning run", Discipline.RUN, "22/09/17",10000, "00:45:12");
-        workout2 = new Workout("afternoon run", Discipline.RUN, "22/09/17",20000, "01:30:52");
-        workout3 = new Workout("afternoon bike", Discipline.BIKE, "22/09/17",50000, "03:04:23");
+        workout1 = new Workout("morning run", Discipline.RUN, "22/09/17",10000, 1234);
+        workout2 = new Workout("afternoon run", Discipline.RUN, "22/09/17",20000, 6789);
+        workout3 = new Workout("afternoon bike", Discipline.BIKE, "22/09/17",50000, 9098);
         athlete = new Athlete("Dave");
     }
 

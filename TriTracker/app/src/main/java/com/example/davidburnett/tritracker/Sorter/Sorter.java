@@ -28,6 +28,16 @@ public class Sorter {
         }
         return workouts;
     }
+
+    public ArrayList<Workout> workoutByTime(Order order) {
+        if (workouts != null) {
+            Collections.sort(workouts, Workout.timeComparator);
+        }
+        if ((workouts != null) && (order == Order.LoToHi)) {
+            Collections.reverse(workouts);
+        }
+        return workouts;
+    }
 }
 
 
