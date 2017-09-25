@@ -4,7 +4,7 @@ import com.example.davidburnett.tritracker.Analyser;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
 import com.example.davidburnett.tritracker.Sorter.AthleteDistanceComparator;
-import com.example.davidburnett.tritracker.Sorter.GroupSorter;
+//import com.example.davidburnett.tritracker.Sorter.GroupSorter;
 import com.example.davidburnett.tritracker.Sorter.Order;
 import com.example.davidburnett.tritracker.Sorter.Sorter;
 import com.example.davidburnett.tritracker.Workout;
@@ -35,6 +35,7 @@ public class LongestRunTest {
     private LongestRun longestRun;
 
     ArrayList<Athlete> athletesToAnalyse;
+    ArrayList<Athlete> results;
 
 
     @Before
@@ -62,14 +63,17 @@ public class LongestRunTest {
         athletesToAnalyse.add(athlete1);
         athletesToAnalyse.add(athlete2);
 
-        longestRun = new LongestRun(athletesToAnalyse);
+        longestRun = new LongestRun();
+        results = longestRun.statForAthletes(athletesToAnalyse);
     }
 
 
     @Test
     public void testLongestRun(){
-        assertEquals(athlete2, longestRun.results().get(0));
-        assertEquals(25000, longestRun.results().get(0).getDisciplineLog(Discipline.RUN).get(0).getDistance());
+//        longestRun.resultsPrint();
+        assertEquals(athlete2, results.get(0));
+//        assertEquals(athlete2, longestRun.results().get(0));
+//        assertEquals(25000, longestRun.results().get(0).getDisciplineLog(Discipline.RUN).get(0).getDistance());
 
 
 

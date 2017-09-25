@@ -3,7 +3,6 @@ package com.example.davidburnett.tritracker.Sorter;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
 
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -17,6 +16,7 @@ public class AthleteDistanceComparator implements Comparator<Athlete> {
     public AthleteDistanceComparator(Discipline discipline){
         this.discipline = discipline;
     }
+
      public int compare(Athlete athleteA, Athlete athleteB) {
              return athleteB.getDisciplineLog(this.discipline).get(0).getDistance()
                     - athleteA.getDisciplineLog(this.discipline).get(0).getDistance();

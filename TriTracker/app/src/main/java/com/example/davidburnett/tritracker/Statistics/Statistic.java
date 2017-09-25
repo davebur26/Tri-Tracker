@@ -10,5 +10,5 @@ import java.util.ArrayList;
 
 public interface Statistic {
 
-    public ArrayList statForAthletes(ArrayList<Athlete>analysedAthletes);
+    ArrayList statForAthletes(ArrayList<Athlete>analysedAthletes);
 }
