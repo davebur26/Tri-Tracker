@@ -2,7 +2,6 @@ package com.example.davidburnett.tritracker.Sorter;
 
 import android.app.Activity;
 
-import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Workout;
 
 import java.util.ArrayList;
@@ -21,7 +20,9 @@ public class Sorter {
     }
 
     public ArrayList<Workout> workoutByDistance(Order order) {
-        Collections.sort(workouts, Workout.distanceComparator);
+        if (workouts != null) {
+            Collections.sort(workouts, Workout.distanceComparator);
+        }
         if (order == Order.LoToHi) {
             Collections.reverse(workouts);
         }

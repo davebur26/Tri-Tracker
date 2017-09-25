@@ -45,10 +45,4 @@ public class Athlete {
             logToAdd.add(workout);
             activityLog.put(discipline, logToAdd);
         }
-
-
-
-
-
-
 }
