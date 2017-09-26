@@ -55,13 +55,7 @@ public class Quickest implements Statistic{
         Collections.sort(athletesToAnalyse, new AthleteTimeComparator(this.discipline));
     }
 
-    public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
-        removeWorkoutsThatAreTooShort(athletesToAnalyse);
-        sortAthletesIndividualWorkoutsQuickestFirst(athletesToAnalyse);
-        rankAthletesLoToHi(athletesToAnalyse);
-//        resultsPrint(athletesToAnalyse);
-        return athletesToAnalyse;
-    }
+
 
     public void resultsPrint(ArrayList<Athlete> results){
         int position = 1;
@@ -77,20 +71,26 @@ public class Quickest implements Statistic{
                 }
             }
 
-            String athleteTimeProper = timeFormatConvertor(athleteTime);
+            String athleteTimeProper = timeFormatConverter(athleteTime);
 
             System.out.println("Position: " + position + ", Name: " + athlete.getName() + " , Time: " + athleteTimeProper + "ms");
             position ++;
         }
     }
 
-    public String timeFormatConvertor(long seconds){
+    public String timeFormatConverter(long seconds){
         long second = (seconds) % 60;
         long minute = (seconds / 60) % 60;
         long hour = (seconds / (60 * 60)) % 24;
 
         return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
 
+    public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
+        removeWorkoutsThatAreTooShort(athletesToAnalyse);
+        sortAthletesIndividualWorkoutsQuickestFirst(athletesToAnalyse);
+        rankAthletesLoToHi(athletesToAnalyse);
+        return athletesToAnalyse;
     }
 
 }
