@@ -19,6 +19,7 @@ public class Sorter {
         this.workouts = workouts;
     }
 
+//    Sorts individual athlete's workouts by distance
     public ArrayList<Workout> workoutByDistance(Order order) {
         if (workouts != null) {
             Collections.sort(workouts, Workout.distanceComparator);
@@ -29,6 +30,7 @@ public class Sorter {
         return workouts;
     }
 
+//    Sorts individual athlete's workouts by time
     public ArrayList<Workout> workoutByTime(Order order) {
         if (workouts != null) {
             Collections.sort(workouts, Workout.timeComparator);

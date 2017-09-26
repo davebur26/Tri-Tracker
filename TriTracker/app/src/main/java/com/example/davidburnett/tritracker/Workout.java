@@ -95,10 +95,10 @@ public class Workout {
         }
     };
 
-    @Override
-    public String toString() {
-        return "Distance:" + this.distance;
-    }
+//    @Override
+//    public String toString() {
+//        return "Distance:" + this.distance;
+//    }
 
 
 

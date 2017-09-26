@@ -23,19 +23,26 @@ public class AthleteTimeComparator implements Comparator<Athlete>{
         ArrayList<Workout> athleteALog = athleteA.getDisciplineLog(this.discipline);
         ArrayList<Workout> athleteBLog = athleteB.getDisciplineLog(this.discipline);
 
-        long athleteADist = 0;
-        long athleteBDist = 0;
+        //        Assumes athlete has no time and assigns infinite value
+        long athleteATime = Long.MAX_VALUE;
+        long athleteBTime = Long.MAX_VALUE;
 
-
-        if (athleteALog != null) {
-            athleteADist = athleteALog.get(0).getTime();
+        //        Finds time for comparison A if athlete has a time in specified discipline
+        if (athleteALog != null){
+            if (athleteALog.size() > 0){
+                athleteATime = athleteALog.get(0).getTime();
+            }
         }
 
-        if (athleteBLog != null) {
-            athleteBDist = athleteBLog.get(0).getTime();
+        //        Finds time for comparison B if athlete has a time in specified discipline
+        if (athleteBLog != null){
+            if (athleteBLog.size() > 0){
+                athleteBTime = athleteBLog.get(0).getTime();
+            }
         }
 
-        return Long.valueOf(athleteADist).compareTo(Long.valueOf(athleteBDist));
+        //        compares which two athleteLogs and returns a long to determine who is higher/lower
+        return Long.valueOf(athleteATime).compareTo(Long.valueOf(athleteBTime));
 
     }
 }

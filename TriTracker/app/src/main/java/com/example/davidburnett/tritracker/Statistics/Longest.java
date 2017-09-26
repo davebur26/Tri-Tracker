@@ -18,49 +18,51 @@ import java.util.Collections;
 public class Longest implements Statistic {
 
     Sorter sorter;
-    ArrayList<Athlete> sorted;
     Discipline discipline;
 
     public Longest(Discipline discipline) {
             this.discipline = discipline;
     }
 
-    public ArrayList<Athlete> sortAthletesIndividualWorkoutsLongestFirst(ArrayList<Athlete> athletesToAnalyse){
+    public void sortAthletesIndividualWorkoutsLongestFirst(ArrayList<Athlete> athletesToAnalyse){
         for (Athlete athlete : athletesToAnalyse) {
             sorter = new Sorter(athlete.getDisciplineLog(discipline));
             sorter.workoutByDistance(Order.HiToLo);
         }
-
-        return athletesToAnalyse;
     }
 
-    public void rankAthletesHiToLo(){
-            Collections.sort(sorted, new AthleteDistanceComparator(this.discipline));
-
-    }
-
-    public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
-        sorted = sortAthletesIndividualWorkoutsLongestFirst(athletesToAnalyse);
-        rankAthletesHiToLo();
-        resultsPrint(athletesToAnalyse);
-        return athletesToAnalyse;
+    public void rankAthletesHiToLo(ArrayList<Athlete> athletesToAnalyse){
+            Collections.sort(athletesToAnalyse, new AthleteDistanceComparator(this.discipline));
     }
 
     public void resultsPrint(ArrayList<Athlete> results){
         int position = 1;
         System.out.println("LONGEST " + this.discipline + " RESULTS");
+
         for (Athlete athlete: results){
 
             int athleteDistance = 0;
             ArrayList<Workout> athleteNullCheck = athlete.getDisciplineLog(this.discipline);
 
-            if (athleteNullCheck != null){
-                 athleteDistance = athlete.getDisciplineLog(this.discipline).get(0).getDistance();
+            if (athleteNullCheck != null) {
+                if (athleteNullCheck.size() > 0){
+                    athleteDistance = athleteNullCheck.get(0).getDistance();
+                }
             }
 
-            System.out.println("Position: " + position + ", Name: " + athlete.getName() + " , Distance: " + athleteDistance + "m");
+            System.out.println(
+                            "Position: " + position +
+                            ", Name: " + athlete.getName() +
+                            " , Distance: " + athleteDistance + "m");
             position ++;
         }
+    }
+
+    public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
+        sortAthletesIndividualWorkoutsLongestFirst(athletesToAnalyse);
+        rankAthletesHiToLo(athletesToAnalyse);
+        resultsPrint(athletesToAnalyse);
+        return athletesToAnalyse;
     }
 
 }
