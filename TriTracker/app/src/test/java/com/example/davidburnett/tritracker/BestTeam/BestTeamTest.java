@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static junit.framework.Assert.assertEquals;
+
 /**
  * Created by davidburnett on 26/09/2017.
  */
@@ -27,11 +29,24 @@ public class BestTeamTest {
     public void testBestMiddleTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.MIDDLE);
         bestTeam.bestCombination(athletesToAnalyse);
+//        assertEquals()
     }
 
     @Test
     public void testBestSprintTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.SPRINT);
+        bestTeam.bestCombination(athletesToAnalyse);
+    }
+
+    @Test
+    public void testBestFullTeam(){
+        BestTeam bestTeam = new BestTeam(RaceType.FULL);
+        bestTeam.bestCombination(athletesToAnalyse);
+    }
+
+    @Test
+    public void testBestStandardTeam(){
+        BestTeam bestTeam = new BestTeam(RaceType.STANDARD);
         bestTeam.bestCombination(athletesToAnalyse);
     }
 

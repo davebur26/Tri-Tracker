@@ -28,14 +28,14 @@ public class AnalyserTest {
 
     @Before
     public void before() {
-        workout1 = new Workout("morning run", Discipline.RUN, "22/09/17", 10000, 123);
-        workout2 = new Workout("afternoon run", Discipline.RUN, "23/09/17", 20000, 456);
-        workout3 = new Workout("afternoon bike", Discipline.BIKE, "25/10/17", 50000, 987);
+        workout1 = new Workout(Discipline.RUN, "22/09/17", 10000, 123);
+        workout2 = new Workout(Discipline.RUN, "23/09/17", 20000, 456);
+        workout3 = new Workout(Discipline.BIKE, "25/10/17", 50000, 987);
         athlete1 = new Athlete("Dave");
 
-        workout4 = new Workout("lunch run", Discipline.RUN, "04/03/16", 15000, 345);
-        workout5 = new Workout("night swim", Discipline.SWIM, "10/06/16", 25000, 100);
-        workout6 = new Workout("afternoon bike", Discipline.BIKE, "16/02/16", 100000, 500);
+        workout4 = new Workout(Discipline.RUN, "04/03/16", 15000, 345);
+        workout5 = new Workout(Discipline.SWIM, "10/06/16", 25000, 100);
+        workout6 = new Workout(Discipline.BIKE, "16/02/16", 100000, 500);
         athlete2 = new Athlete("Neil");
 
         athlete1.addActivityToLog(workout1);

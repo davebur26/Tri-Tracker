@@ -66,7 +66,6 @@ public class BestTeam{
 
         resultsPrint();
         return bestTeam;
-
     }
 
 
@@ -75,8 +74,6 @@ public class BestTeam{
         System.out.println("Swimmer: " + bestTeam[0].getName());
         System.out.println("Biker: " + bestTeam[1].getName());
         System.out.println("Runner: " + bestTeam[2].getName());
-        System.out.println("");
-
+//        System.out.println("");
     }
-
 }

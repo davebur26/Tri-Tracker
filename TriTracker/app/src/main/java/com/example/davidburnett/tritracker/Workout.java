@@ -29,8 +29,7 @@ public class Workout {
     private String timeString;
 
 
-    public Workout(String name, Discipline discipline, String dateString, int distance, long time) {
-        this.name = name;
+    public Workout(Discipline discipline, String dateString, int distance, long time) {
         this.dateString = dateString;
         this.distance = distance;
         this.discipline = discipline;

@@ -24,8 +24,8 @@ public class WorkoutTest {
     @Before
     public void before(){
 
-        workout1 = new Workout("morning run", Discipline.RUN, "22/01/2017",10000, 12345);
-        workout2 = new Workout("morning run", Discipline.RUN, "29/09/2017",10000, 98765);
+        workout1 = new Workout(Discipline.RUN, "22/01/2017",10000, 12345);
+        workout2 = new Workout(Discipline.RUN, "29/09/2017",10000, 98765);
 
         //Long gap = (workout1.getTime() - workout2.getTime());
 
