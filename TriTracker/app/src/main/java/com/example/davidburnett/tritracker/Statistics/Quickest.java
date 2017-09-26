@@ -25,6 +25,33 @@ public class Quickest implements Statistic{
         this.distance = distance;
     }
 
+    // Removes workouts which are shorter than the specified distance
+    public void removeWorkoutsThatAreTooShort(ArrayList<Athlete> athletesToAnalyse){
+        // creates an empty array for populating of workouts which are too short in distance
+        ArrayList<Workout> workoutToRemove = new ArrayList<>();
+
+        for (Athlete athlete: athletesToAnalyse) {
+            // gets the athlete's workouts for specified discipline
+            ArrayList<Workout> athleteDisciplineLog = athlete.getDisciplineLog(this.discipline);
+
+            // checks if the discipline log is null
+            if (athleteDisciplineLog != null){
+                for (Workout workout: athleteDisciplineLog) {
+                    // checks if workouts distance meets requirement
+                    if (workout.getDistance() < this.distance) {
+                        // add workout to removal array if true
+                        workoutToRemove.add(workout);
+                    }
+                }
+                // removes all workouts which did not make the requirement
+                athlete.getActivityLog().get(this.discipline).removeAll(workoutToRemove);
+                // clears the removal array for next iteration of loop
+                workoutToRemove.clear();
+            }
+        }
+    }
+
+      // Sorts individuals athletes workouts for specified discipline from quickest to slowest
     public ArrayList<Athlete> sortAthletesIndividualWorkoutsQuickestFirst(ArrayList<Athlete> athletesToAnalyse){
         for (Athlete athlete : athletesToAnalyse) {
             sorter = new Sorter(athlete.getDisciplineLog(discipline));
@@ -33,51 +60,42 @@ public class Quickest implements Statistic{
         return athletesToAnalyse;
     }
 
-
-    public void removeWorkoutsThatAreTooShort(ArrayList<Athlete> athletesToAnalyse){
-        ArrayList<Workout> workoutToRemove = new ArrayList<>();
-        for (Athlete athlete: athletesToAnalyse) {
-            ArrayList<Workout> athleteDisciplineLog = athlete.getDisciplineLog(this.discipline);
-
-            if (athleteDisciplineLog != null){
-                for (Workout workout: athleteDisciplineLog) {
-                    if (workout.getDistance() < this.distance) {
-                    workoutToRemove.add(workout);
-                }
-            }
-            athlete.getActivityLog().get(this.discipline).removeAll(workoutToRemove);
-            workoutToRemove.clear();
-            }
-        }
-    }
-
+      // Re-orders the athletes to analyse array from lo to hi.
     public void rankAthletesLoToHi(ArrayList<Athlete> athletesToAnalyse){
         Collections.sort(athletesToAnalyse, new AthleteTimeComparator(this.discipline));
     }
 
 
-
+      // Formats the results and prints to terminal
     public void resultsPrint(ArrayList<Athlete> results){
         int position = 1;
+
+          // Creates a title for the output.
         System.out.println("QUICKEST " + this.discipline + " RESULTS");
+
+          // Loops through each athlete in results
         for (Athlete athlete: results){
 
-            Long athleteTime = new Long(0);
+              // Initially sets the athletes time to 0
+            String athleteTime = "0";
+              // Creates an array for null checking
             ArrayList<Workout> athleteNullCheck = athlete.getDisciplineLog(this.discipline);
 
+              // if array is not null, retrieves athletes times
             if (athleteNullCheck != null){
                 if (athleteNullCheck.size() > 0) {
-                    athleteTime = athlete.getDisciplineLog(this.discipline).get(0).getTime();
+                    Long athleteTimeLong = athlete.getDisciplineLog(this.discipline).get(0).getTime();
+                    athleteTime = timeFormatConverter(athleteTimeLong);
                 }
             }
 
-            String athleteTimeProper = timeFormatConverter(athleteTime);
-
-            System.out.println("Position: " + position + ", Name: " + athlete.getName() + " , Time: " + athleteTimeProper + "ms");
+              // prints the athletes stats to terminal
+            System.out.println("Position: " + position + ", Name: " + athlete.getName() + " , Time: " + athleteTime + "ms");
             position ++;
         }
     }
 
+      // Converts long seconds into hh:mm:ss format
     public String timeFormatConverter(long seconds){
         long second = (seconds) % 60;
         long minute = (seconds / 60) % 60;
@@ -86,6 +104,7 @@ public class Quickest implements Statistic{
         return String.format("%02d:%02d:%02d", hour, minute, second);
     }
 
+      // Runner for all functions
     public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
         removeWorkoutsThatAreTooShort(athletesToAnalyse);
         sortAthletesIndividualWorkoutsQuickestFirst(athletesToAnalyse);
