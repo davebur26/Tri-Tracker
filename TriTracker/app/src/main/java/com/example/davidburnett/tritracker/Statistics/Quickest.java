@@ -98,3 +98,7 @@ public class Quickest implements Statistic{
 
 
 
+
+
+
+
