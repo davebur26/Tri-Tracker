@@ -3,7 +3,6 @@ package com.example.davidburnett.tritracker.Statistics;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Database;
 import com.example.davidburnett.tritracker.Discipline;
-import com.example.davidburnett.tritracker.Workout;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,19 +31,23 @@ public class LongestTest {
 
 
     @Test
-    public void testLongestRun(){
+    public void testLongestSwim() {
         longestRun = new Longest(Discipline.SWIM);
         resultsRun = longestRun.statForAthletes(athletesToAnalyse);
+        assertEquals("Dave", resultsRun.get(0).getName());
+    }
 
-        assertEquals("Neil", resultsRun.get(0).getName());
-
-    }@Test
+    @Test
     public void testLongestBike(){
         longestBike = new Longest(Discipline.BIKE);
         resultsBike = longestBike.statForAthletes(athletesToAnalyse);
-//        longestBike.resultsPrint(resultsBike);
+        assertEquals("Dave", resultsBike.get(0).getName());
+    }
 
-
+    @Test
+    public void testLongestRun(){
+        longestBike = new Longest(Discipline.RUN);
+        resultsBike = longestBike.statForAthletes(athletesToAnalyse);
         assertEquals("Dave", resultsBike.get(0).getName());
     }
 

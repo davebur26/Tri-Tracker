@@ -36,7 +36,6 @@ public class WorkoutTest {
 
     @Test
     public void testActivityInfo(){
-        assertEquals("morning run", workout1.getName());
         assertEquals(Discipline.RUN, workout1.getDiscipline());
 //        assertEquals(1, workout1.getDate().get(Calendar.MONTH)+1);
         assertEquals(10000, workout1.getDistance(), 1e-6);
