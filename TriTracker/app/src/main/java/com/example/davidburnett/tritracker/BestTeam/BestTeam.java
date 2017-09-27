@@ -76,4 +76,8 @@ public class BestTeam{
         System.out.println("Runner: " + bestTeam[2].getName());
 //        System.out.println("");
     }
+
+    public Athlete getAthlete(Discipline discipline) {
+        return bestTeam[discipline.getIndex()];
+    }
 }

@@ -3,11 +3,9 @@ package com.example.davidburnett.tritracker.BestTeam;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Database;
 import com.example.davidburnett.tritracker.Discipline;
-import com.example.davidburnett.tritracker.Workout;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
@@ -29,19 +27,21 @@ public class BestTeamTest {
     public void testBestMiddleTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.MIDDLE);
         bestTeam.bestCombination(athletesToAnalyse);
-//        assertEquals()
+        assertEquals("Sally", bestTeam.getAthlete(Discipline.SWIM).getName());
     }
 
     @Test
     public void testBestSprintTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.SPRINT);
         bestTeam.bestCombination(athletesToAnalyse);
+        assertEquals("Sally", bestTeam.getAthlete(Discipline.SWIM).getName());
+
     }
 
     @Test
     public void testBestFullTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.FULL);
-        bestTeam.bestCombination(athletesToAnalyse);
+        assertEquals(3, bestTeam.bestCombination(athletesToAnalyse).length);
     }
 
     @Test

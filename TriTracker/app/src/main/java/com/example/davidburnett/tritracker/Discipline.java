@@ -5,8 +5,18 @@ package com.example.davidburnett.tritracker;
  */
 
 public enum Discipline {
-    SWIM,
-    BIKE,
-    RUN,
-    TRIATHLON
+    SWIM(0),
+    BIKE(1),
+    RUN(2);
+
+private int index;
+
+        Discipline(int index){
+        this.index = index;
+        }
+
+public int getIndex() {
+        return index;
+        }
+
 }

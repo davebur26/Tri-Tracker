@@ -24,8 +24,8 @@ public class WorkoutTest {
     @Before
     public void before(){
 
-        workout1 = new Workout(Discipline.RUN, "22/01/2017",10000, 12345);
-        workout2 = new Workout(Discipline.RUN, "29/09/2017",10000, 98765);
+        workout1 = new Workout(Discipline.RUN, "22/01/2017",10000, 2980);
+        workout2 = new Workout(Discipline.RUN, "29/09/2017",10000, 3000);
 
         //Long gap = (workout1.getTime() - workout2.getTime());
 
@@ -39,6 +39,7 @@ public class WorkoutTest {
         assertEquals(Discipline.RUN, workout1.getDiscipline());
 //        assertEquals(1, workout1.getDate().get(Calendar.MONTH)+1);
         assertEquals(10000, workout1.getDistance(), 1e-6);
+        assertEquals(0.81, workout1.getAveragePace(), 1e-6);
 //        assertEquals(13, workout1.getTime().get(Calendar.HOUR_OF_DAY));
     }
 

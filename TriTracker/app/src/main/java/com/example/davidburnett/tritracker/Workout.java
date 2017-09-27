@@ -60,6 +60,10 @@ public class Workout {
         return time;
     }
 
+    public double getAveragePace(){
+        return ((double)this.distance/((double) this.time));
+    }
+
     public void convertDateTimeFromString() {
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
 //        date = Calendar.getInstance();
