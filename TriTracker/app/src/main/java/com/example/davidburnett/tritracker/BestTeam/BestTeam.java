@@ -71,9 +71,9 @@ public class BestTeam{
 
 
     public void resultsPrint(){
-        String format = "| %-15s | %-15s %n";
+        String format = "| %-10s | %-16s |%n";
         System.out.printf(format, "DISCIPLINE","NAME");
-        System.out.println("==================+==============");
+        System.out.println("+============+==================+");
         System.out.printf(format, "Swimmer", bestTeam[0].getName());
         System.out.printf(format, "Biker", bestTeam[1].getName());
         System.out.printf(format, "Runner", bestTeam[2].getName());
