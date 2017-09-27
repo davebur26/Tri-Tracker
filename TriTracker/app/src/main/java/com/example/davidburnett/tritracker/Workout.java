@@ -61,7 +61,10 @@ public class Workout {
     }
 
     public double getAveragePace(){
-        return ((double)this.distance/((double) this.time));
+        double paceTime = this.time/60;
+        double paceDist = this.distance/1000;
+        double pace = Math.round(paceTime/paceDist * 100.0) / 100.0;
+        return pace;
     }
 
     public void convertDateTimeFromString() {

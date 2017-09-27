@@ -27,14 +27,14 @@ public class BestTeamTest {
     public void testBestMiddleTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.MIDDLE);
         bestTeam.bestCombination(athletesToAnalyse);
-        assertEquals("Sally", bestTeam.getAthlete(Discipline.SWIM).getName());
+        assertEquals("Claire", bestTeam.getAthlete(Discipline.BIKE).getName());
     }
 
     @Test
     public void testBestSprintTeam(){
         BestTeam bestTeam = new BestTeam(RaceType.SPRINT);
         bestTeam.bestCombination(athletesToAnalyse);
-        assertEquals("Sally", bestTeam.getAthlete(Discipline.SWIM).getName());
+        assertEquals("Dave", bestTeam.getAthlete(Discipline.SWIM).getName());
 
     }
 

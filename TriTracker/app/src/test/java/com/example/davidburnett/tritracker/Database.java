@@ -105,17 +105,20 @@ public class Database {
         workout4 = new Workout(Discipline.RUN, "22/10/17",5040, 1000);
         workout5 = new Workout(Discipline.RUN, "22/11/17",5087, 1230);
         workout6 = new Workout(Discipline.RUN, "22/11/17",5112, 1250);
-        workout7 = new Workout(Discipline.RUN, "22/11/17",99090, 2700);
-        workout8 = new Workout(Discipline.RUN, "22/12/17",99089, 2720);
+
+        workout7 = new Workout(Discipline.RUN, "22/11/17",9090, 2700);
+        workout8 = new Workout(Discipline.RUN, "22/12/17",9089, 2720);
         workout9 = new Workout(Discipline.RUN, "22/12/17",10010, 2980);
         workout10 = new Workout(Discipline.RUN, "22/09/17",10087, 2600);
         workout11 = new Workout(Discipline.RUN, "22/09/17",11000, 2500);
         workout12 = new Workout(Discipline.RUN, "22/10/17",12087, 2550);
+
         workout13 = new Workout(Discipline.RUN, "22/10/17",25000, 5200);
         workout14 = new Workout(Discipline.RUN, "22/12/17",26000, 5300);
         workout15 = new Workout(Discipline.RUN, "22/12/17",24300, 4980);
         workout16 = new Workout(Discipline.RUN, "22/12/17",23300, 5000);
         workout17 = new Workout(Discipline.RUN, "22/11/17",29800, 6000);
+
         workout18 = new Workout(Discipline.RUN, "22/11/17",45000, 12600);
         workout19 = new Workout(Discipline.RUN, "22/10/17",43000, 12000);
         workout20 = new Workout(Discipline.RUN, "22/10/17",44000, 13000);
@@ -134,16 +137,19 @@ public class Database {
         workout30 = new Workout(Discipline.BIKE, "22/11/17",24000, 1800);
         workout31 = new Workout(Discipline.BIKE, "22/12/17",25000, 1765);
         workout32 = new Workout(Discipline.BIKE, "22/09/17",20000, 1876);
+
         workout33 = new Workout(Discipline.BIKE, "22/08/17",50000, 3213);
         workout34 = new Workout(Discipline.BIKE, "22/09/17",50000, 3344);
         workout35 = new Workout(Discipline.BIKE, "22/11/17",50000, 3541);
         workout36 = new Workout(Discipline.BIKE, "22/12/17",50000, 3409);
         workout37 = new Workout(Discipline.BIKE, "22/12/17",50000, 3487);
+
         workout38 = new Workout(Discipline.BIKE, "22/11/17",100000, 7987);
         workout39 = new Workout(Discipline.BIKE, "22/11/17",100000, 7656);
         workout40 = new Workout(Discipline.BIKE, "22/09/17",100000, 7120);
         workout41 = new Workout(Discipline.BIKE, "22/09/17",100000, 7639);
         workout42 = new Workout(Discipline.BIKE, "22/12/17",100000, 7676);
+
         workout43 = new Workout(Discipline.BIKE, "22/12/17",180000, 14567);
         workout44 = new Workout(Discipline.BIKE, "22/11/17",180000, 15463);
         workout45 = new Workout(Discipline.BIKE, "22/11/17",180000, 18787);
@@ -159,6 +165,7 @@ public class Database {
         workout52 = new Workout(Discipline.SWIM, "22/09/17",750, 798);
         workout53 = new Workout(Discipline.SWIM, "22/10/17",750, 765);
         workout54 = new Workout(Discipline.SWIM, "22/11/17",750, 890);
+
         workout55 = new Workout(Discipline.SWIM, "22/12/17",1500, 2000);
         workout56 = new Workout(Discipline.SWIM, "22/08/17",1500, 2100);
         workout57 = new Workout(Discipline.SWIM, "22/09/17",1500, 2340);
@@ -166,11 +173,13 @@ public class Database {
         workout59 = new Workout(Discipline.SWIM, "22/09/17",1500, 2345);
         workout60 = new Workout(Discipline.SWIM, "22/10/17",1500, 3409);
         workout61 = new Workout(Discipline.SWIM, "22/10/17",1500, 3487);
+
         workout62 = new Workout(Discipline.SWIM, "22/12/17",1900, 4000);
         workout63 = new Workout(Discipline.SWIM, "22/12/17",1900, 4123);
         workout64 = new Workout(Discipline.SWIM, "22/09/17",1900, 4312);
         workout65 = new Workout(Discipline.SWIM, "22/09/17",1900, 4512);
         workout66 = new Workout(Discipline.SWIM, "22/10/17",1900, 4123);
+
         workout67 = new Workout(Discipline.SWIM, "22/11/17",3800, 8098);
         workout68 = new Workout(Discipline.SWIM, "22/12/17",3800, 9999);
         workout69 = new Workout(Discipline.SWIM, "22/11/17",3800, 9675);
@@ -271,4 +280,7 @@ public class Database {
         return athletesToAnalyse;
 
     }
+
+//    getters for all athletes
+
 }

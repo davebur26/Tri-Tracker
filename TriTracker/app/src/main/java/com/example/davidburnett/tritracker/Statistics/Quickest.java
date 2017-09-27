@@ -2,7 +2,7 @@ package com.example.davidburnett.tritracker.Statistics;
 
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
-import com.example.davidburnett.tritracker.Sorter.AthleteTimeComparator;
+import com.example.davidburnett.tritracker.Sorter.AthletePaceComparator;
 import com.example.davidburnett.tritracker.Sorter.Order;
 import com.example.davidburnett.tritracker.Sorter.Sorter;
 import com.example.davidburnett.tritracker.Workout;
@@ -62,7 +62,7 @@ public class Quickest implements Statistic{
 
       // Re-orders the athletes to analyse array from lo to hi.
     public void rankAthletesLoToHi(ArrayList<Athlete> athletesToAnalyse){
-        Collections.sort(athletesToAnalyse, new AthleteTimeComparator(this.discipline));
+        Collections.sort(athletesToAnalyse, new AthletePaceComparator(this.discipline));
     }
 
 
@@ -77,6 +77,8 @@ public class Quickest implements Statistic{
         for (Athlete athlete: results){
 
               // Initially sets the athletes time to 0
+            String athletePace = "0";
+            String athleteDist = "0";
             String athleteTime = "0";
               // Creates an array for null checking
             ArrayList<Workout> athleteNullCheck = athlete.getDisciplineLog(this.discipline);
@@ -84,13 +86,24 @@ public class Quickest implements Statistic{
               // if array is not null, retrieves athletes times
             if (athleteNullCheck != null){
                 if (athleteNullCheck.size() > 0) {
+
+                    Double athletePaceDouble = athlete.getDisciplineLog(this.discipline).get(0).getAveragePace();
+                    athletePace = athletePaceDouble.toString();
+
+                    Integer athleteDistInt = athlete.getDisciplineLog(this.discipline).get(0).getDistance();
+                    athleteDist = athleteDistInt.toString();
+
                     Long athleteTimeLong = athlete.getDisciplineLog(this.discipline).get(0).getTime();
                     athleteTime = timeFormatConverter(athleteTimeLong);
                 }
             }
 
               // prints the athletes stats to terminal
-            System.out.println("Position: " + position + ", Name: " + athlete.getName() + " , Time: " + athleteTime + "ms");
+            System.out.println(
+                    "Position: " + position +
+                            ", Name: " + athlete.getName() +
+                            " , Pace: " + athletePace + "min/km " +
+                            "(Time & Distance " + athleteTime + " - " + athleteDist + "km)");
             position ++;
         }
     }
