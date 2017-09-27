@@ -20,16 +20,24 @@ public class Quickest implements Statistic{
     Discipline discipline;
     int distance;
     int month;
+    int year;
 
     public Quickest(Discipline discipline, int distance){
         this.discipline = discipline;
         this.distance = distance;
     }
-    public Quickest(Discipline discipline, int distance, int month){
+    public Quickest(Discipline discipline, int distance, int year){
         this.discipline = discipline;
         this.distance = distance;
+        this.year = year;
+    }
+    public Quickest(Discipline discipline, int distance, int year, int month){
+        this.discipline = discipline;
+        this.distance = distance;
+        this.year = year;
         this.month = month;
     }
+
 
     // Removes workouts which are shorter than the specified distance
     public void removeWorkoutsThatAreTooShort(ArrayList<Athlete> athletesToAnalyse){
@@ -40,7 +48,7 @@ public class Quickest implements Statistic{
             // gets the athlete's workouts for specified discipline
             ArrayList<Workout> athleteDisciplineLog = athlete.getDisciplineLog(this.discipline);
 
-
+            System.out.println(month);
 
             // checks if the discipline log is null
             if (athleteDisciplineLog != null){
@@ -49,8 +57,9 @@ public class Quickest implements Statistic{
                     if (workout.getDistance() < this.distance) {
                         // add workout to removal array if true
                         workoutToRemove.add(workout);
-                    }
-                    if (month != 0 && workout.getMonth()!= month){
+                    } else if (year != 0 && workout.getYear()!= year){
+                        workoutToRemove.add(workout);
+                    } else if (year !=0 && month !=0 && workout.getMonth() != month){
                         workoutToRemove.add(workout);
                     }
                 }

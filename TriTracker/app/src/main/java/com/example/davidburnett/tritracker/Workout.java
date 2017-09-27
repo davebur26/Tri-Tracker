@@ -92,4 +92,9 @@ public class Workout {
                     (workoutB.getTime() == workoutA.getTime() ? 0 : 1));
         }
     };
+
+    @Override
+    public String toString(){
+        return "Workout month/year: " + getMonth() + "/" + getYear();
+    }
 }
