@@ -19,10 +19,16 @@ public class Quickest implements Statistic{
     Sorter sorter;
     Discipline discipline;
     int distance;
+    int month;
 
     public Quickest(Discipline discipline, int distance){
         this.discipline = discipline;
         this.distance = distance;
+    }
+    public Quickest(Discipline discipline, int distance, int month){
+        this.discipline = discipline;
+        this.distance = distance;
+        this.month = month;
     }
 
     // Removes workouts which are shorter than the specified distance
@@ -34,12 +40,17 @@ public class Quickest implements Statistic{
             // gets the athlete's workouts for specified discipline
             ArrayList<Workout> athleteDisciplineLog = athlete.getDisciplineLog(this.discipline);
 
+
+
             // checks if the discipline log is null
             if (athleteDisciplineLog != null){
                 for (Workout workout: athleteDisciplineLog) {
                     // checks if workouts distance meets requirement
                     if (workout.getDistance() < this.distance) {
                         // add workout to removal array if true
+                        workoutToRemove.add(workout);
+                    }
+                    if (month != 0 && workout.getMonth()!= month){
                         workoutToRemove.add(workout);
                     }
                 }
@@ -50,6 +61,9 @@ public class Quickest implements Statistic{
             }
         }
     }
+
+
+
 
       // Sorts individuals athletes workouts for specified discipline from quickest to slowest
     public ArrayList<Athlete> sortAthletesIndividualWorkoutsQuickestFirst(ArrayList<Athlete> athletesToAnalyse){

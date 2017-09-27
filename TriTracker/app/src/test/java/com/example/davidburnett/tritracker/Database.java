@@ -125,7 +125,7 @@ public class Database {
         workout21 = new Workout(Discipline.RUN, "22/09/17",43500, 12800);
         workout22 = new Workout(Discipline.RUN, "22/09/17",45000, 12750);
         workout23 = new Workout(Discipline.RUN, "22/09/17",48000, 13400);
-        workout24 = new Workout(Discipline.RUN, "23/09/17",20000, 94567);
+        workout24 = new Workout(Discipline.RUN, "23/08/17",20000, 94567);
 
           // BIKES
 
