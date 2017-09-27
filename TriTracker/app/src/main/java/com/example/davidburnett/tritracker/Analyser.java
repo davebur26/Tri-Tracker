@@ -12,8 +12,6 @@ import java.util.Comparator;
 public class Analyser{
 
     private ArrayList<Athlete> analysedAthletes;
-    Statistic statistic;
-
 
     public Analyser(){
         analysedAthletes = new ArrayList<>();

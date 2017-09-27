@@ -1,7 +1,5 @@
 package com.example.davidburnett.tritracker.Sorter;
 
-import android.app.Activity;
-
 import com.example.davidburnett.tritracker.Workout;
 
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ public class Sorter {
 //    Sorts individual athlete's workouts by time
     public ArrayList<Workout> workoutByTime(Order order) {
         if (workouts != null) {
-            Collections.sort(workouts, Workout.timeComparator);
+            Collections.sort(workouts, Workout.paceComparator);
         }
         if ((workouts != null) && (order == Order.LoToHi)) {
             Collections.reverse(workouts);

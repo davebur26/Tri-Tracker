@@ -46,13 +46,6 @@ public class Longest implements Statistic {
         this.month =month;
     }
 
-    public void sortAthletesIndividualWorkoutsLongestFirst(ArrayList<Athlete> athletesToAnalyse){
-        for (Athlete athlete : athletesToAnalyse) {
-            sorter = new Sorter(athlete.getDisciplineLog(discipline));
-            sorter.workoutByDistance(Order.HiToLo);
-        }
-    }
-
     // Removes workouts which are shorter than the specified distance
     public void removeWorkoutsThatAreTooLong(ArrayList<Athlete> athletesToAnalyse){
         // creates an empty array for populating of workouts which are too short in distance
@@ -85,19 +78,25 @@ public class Longest implements Statistic {
         }
     }
 
-
-
-
+    // Sorts the athletes putting the longest workout at index 0
+    public void sortAthletesIndividualWorkoutsLongestFirst(ArrayList<Athlete> athletesToAnalyse){
+        for (Athlete athlete : athletesToAnalyse) {
+            sorter = new Sorter(athlete.getDisciplineLog(discipline));
+            sorter.workoutByDistance(Order.HiToLo);
+        }
+    }
 
     public void rankAthletesHiToLo(ArrayList<Athlete> athletesToAnalyse){
             Collections.sort(athletesToAnalyse, new AthleteDistanceComparator(this.discipline));
     }
 
     public void resultsPrint(ArrayList<Athlete> results){
+          // Position of the athlete in results
         int position = 1;
         String format = "| %-8s | %-16s | %-14s| %n";
         System.out.println();
         System.out.println("LONGEST " + this.discipline + " RESULTS");
+          // If statements adjusts Details depending if time/year/month are applied in constructor
         if(time != Integer.MAX_VALUE) System.out.println("DETAILS:");
         if(time != Integer.MAX_VALUE) System.out.print("SUB: " + time/60 + " mins");
         if(year > 0)System.out.print(" // YEAR: " + year);
@@ -107,7 +106,7 @@ public class Longest implements Statistic {
         System.out.printf(format, "POSITION", "NAME", "DISTANCE (km)");
         System.out.println("===========+==================+================");
 
-
+          //loops through results array and outputs the required info. Outputs 0 if object is null
         for (Athlete athlete: results){
 
             int athleteDistance = 0;
@@ -119,10 +118,9 @@ public class Longest implements Statistic {
                 }
             }
 
-            // prints the athletes stats to terminal
+              // prints the athletes stats to terminal
             System.out.printf(format, position, athlete.getName(), athleteDistance);
             System.out.println("-----------+------------------+----------------");
-
 
             position ++;
 
@@ -130,6 +128,7 @@ public class Longest implements Statistic {
         }
     }
 
+      // runner function as part of the Statistic interface
     public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
         removeWorkoutsThatAreTooLong(athletesToAnalyse);
         sortAthletesIndividualWorkoutsLongestFirst(athletesToAnalyse);

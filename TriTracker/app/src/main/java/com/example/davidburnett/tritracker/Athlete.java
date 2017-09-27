@@ -11,12 +11,10 @@ import java.util.HashMap;
 public class Athlete {
 
         private String name;
-        private ArrayList<Workout> disciplineLog;
         private HashMap<Discipline, ArrayList<Workout>> activityLog;
 
         public Athlete (String name){
             this.name = name;
-            disciplineLog = new ArrayList<>();
             activityLog = new HashMap<>();
         }
 

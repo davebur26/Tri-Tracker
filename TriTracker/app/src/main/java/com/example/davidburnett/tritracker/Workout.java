@@ -1,17 +1,10 @@
 package com.example.davidburnett.tritracker;
 
-
-import android.support.annotation.NonNull;
-
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.Locale;
-
-import javax.xml.datatype.Duration;
 
 /**
  * Created by davidburnett on 22/09/2017.
@@ -31,7 +24,7 @@ public class Workout {
         this.distance = distance;
         this.discipline = discipline;
         this.time = time;
-        date = convertDateTimeFromString();
+        date = convertToCalenderDateFromString();
     }
 
 
@@ -62,7 +55,7 @@ public class Workout {
         return pace;
     }
 
-    public Calendar convertDateTimeFromString() {
+    public Calendar convertToCalenderDateFromString() {
         try {
             date = Calendar.getInstance();
 
@@ -77,6 +70,7 @@ public class Workout {
         return date;
     }
 
+      // compares two distance values and assigns a -1 0 1 depending on their order
     public static Comparator<Workout> distanceComparator = new Comparator<Workout>() {
         @Override
         public int compare(Workout workoutA, Workout workoutB) {
@@ -85,16 +79,13 @@ public class Workout {
         }
     };
 
-    public static Comparator<Workout> timeComparator = new Comparator<Workout>() {
+      // compares two pace values and assigns a -1 0 1 depending on their order
+    public static Comparator<Workout> paceComparator = new Comparator<Workout>() {
         @Override
         public int compare(Workout workoutA, Workout workoutB) {
-            return (workoutB.getTime() < workoutA.getTime() ? -1 :
-                    (workoutB.getTime() == workoutA.getTime() ? 0 : 1));
+            return (workoutB.getAveragePace() < workoutA.getAveragePace() ? -1 :
+                    (workoutB.getAveragePace() == workoutA.getAveragePace() ? 0 : 1));
         }
     };
 
-    @Override
-    public String toString(){
-        return "Workout month/year: " + getMonth() + "/" + getYear();
-    }
 }
