@@ -67,54 +67,69 @@ public class Quickest implements Statistic{
 
 
       // Formats the results and prints to terminal
-    public void resultsPrint(ArrayList<Athlete> results){
+    public void resultsPrint(ArrayList<Athlete> results) {
         int position = 1;
 
-          // Creates a title for the output.
-        System.out.println("QUICKEST " + this.discipline + " RESULTS");
+        // Creates a title for the output.
 
-          // Loops through each athlete in results
-        for (Athlete athlete: results){
+        String format = "| %-8s | %-16s | %-15s| %-15s| %-14s| %n";
+        System.out.println();
+        System.out.println("QUICKEST " + (this.distance/1000) + "KM " + this.discipline + " RESULTS");
+        System.out.println("===========+==================+================+================+================");
+        System.out.printf(format, "POSITION", "NAME", "PACE (mins/km)", "TIME(hh/mm/ss)", "DISTANCE (km)");
+        System.out.println("===========+==================+================+================+================");
 
-              // Initially sets the athletes time to 0
+
+        // Loops through each athlete in results
+        for (Athlete athlete : results) {
+
+            // Initially sets the athletes time to 0
             String athletePace = "0";
             String athleteDist = "0";
             String athleteTime = "0";
-              // Creates an array for null checking
+            // Creates an array for null checking
             ArrayList<Workout> athleteNullCheck = athlete.getDisciplineLog(this.discipline);
 
-              // if array is not null, retrieves athletes times
-            if (athleteNullCheck != null){
+            // if array is not null, retrieves athletes times
+            if (athleteNullCheck != null) {
                 if (athleteNullCheck.size() > 0) {
 
                     Double athletePaceDouble = athlete.getDisciplineLog(this.discipline).get(0).getAveragePace();
-                    athletePace = athletePaceDouble.toString();
+                    athletePace = timeFormatConverterMS(athletePaceDouble);
 
                     Integer athleteDistInt = athlete.getDisciplineLog(this.discipline).get(0).getDistance();
                     athleteDist = athleteDistInt.toString();
 
                     Long athleteTimeLong = athlete.getDisciplineLog(this.discipline).get(0).getTime();
-                    athleteTime = timeFormatConverter(athleteTimeLong);
+                    athleteTime = timeFormatConverterHMS(athleteTimeLong);
                 }
             }
 
-              // prints the athletes stats to terminal
-            System.out.println(
-                    "Position: " + position +
-                            ", Name: " + athlete.getName() +
-                            " , Pace: " + athletePace + "min/km " +
-                            "(Time & Distance " + athleteTime + " - " + athleteDist + "km)");
-            position ++;
+            // prints the athletes stats to terminal
+            System.out.printf(format, position, athlete.getName(), athletePace, athleteTime, athleteDist);
+            System.out.println("-----------+------------------+----------------+----------------+----------------");
+
+            position++;
         }
     }
 
+
+
+
       // Converts long seconds into hh:mm:ss format
-    public String timeFormatConverter(long seconds){
+    public String timeFormatConverterHMS(long seconds){
         long second = (seconds) % 60;
         long minute = (seconds / 60) % 60;
         long hour = (seconds / (60 * 60)) % 24;
 
         return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
+
+    // Converts double mins into mm:ss format
+    public String timeFormatConverterMS(double mins){
+        Integer minute = (int) mins;
+        Integer second = (int) ((mins - (double) minute) * 60);
+        return String.format("%2s:%2s", minute.toString(), second.toString());
     }
 
       // Runner for all functions
@@ -126,9 +141,6 @@ public class Quickest implements Statistic{
     }
 
 }
-
-
-
 
 
 

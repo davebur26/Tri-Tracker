@@ -34,7 +34,7 @@ public class LongestTest {
     public void testLongestSwim() {
         longestRun = new Longest(Discipline.SWIM);
         resultsRun = longestRun.statForAthletes(athletesToAnalyse);
-        assertEquals("Dave", resultsRun.get(0).getName());
+        assertEquals("Sally", resultsRun.get(0).getName());
     }
 
     @Test

@@ -23,20 +23,17 @@ public class WorkoutTest {
 
     @Before
     public void before(){
-
         workout1 = new Workout(Discipline.RUN, "22/01/2017",10000, 2980);
         workout2 = new Workout(Discipline.RUN, "29/09/2017",10000, 3000);
-
-
     }
 
     @Test
     public void testActivityInfo(){
         assertEquals(Discipline.RUN, workout1.getDiscipline());
-//        assertEquals(1, workout1.getDate().get(Calendar.MONTH)+1);
+        assertEquals(1, workout1.getMonth());
+        assertEquals(2017, workout1.getYear());
         assertEquals(10000, workout1.getDistance(), 1e-6);
         assertEquals(4.9, workout1.getAveragePace(), 1e-4);
-//        assertEquals(13, workout1.getTime().get(Calendar.HOUR_OF_DAY));
     }
 
 

@@ -180,12 +180,12 @@ public class Database {
         workout65 = new Workout(Discipline.SWIM, "22/09/17",1900, 4512);
         workout66 = new Workout(Discipline.SWIM, "22/10/17",1900, 4123);
 
-        workout67 = new Workout(Discipline.SWIM, "22/11/17",3800, 8098);
-        workout68 = new Workout(Discipline.SWIM, "22/12/17",3800, 9999);
-        workout69 = new Workout(Discipline.SWIM, "22/11/17",3800, 9675);
-        workout70 = new Workout(Discipline.SWIM, "22/12/17",3800, 9871);
-        workout71 = new Workout(Discipline.SWIM, "22/11/17",3800, 10987);
-        workout72 = new Workout(Discipline.SWIM, "23/12/17",3800, 18789);
+        workout67 = new Workout(Discipline.SWIM, "22/11/17",3809, 8098);
+        workout68 = new Workout(Discipline.SWIM, "22/12/17",3963, 9999);
+        workout69 = new Workout(Discipline.SWIM, "22/11/17",3784, 9675);
+        workout70 = new Workout(Discipline.SWIM, "22/12/17",3914, 9871);
+        workout71 = new Workout(Discipline.SWIM, "22/11/17",3854, 10987);
+        workout72 = new Workout(Discipline.SWIM, "23/12/17",3812, 18789);
 
 
         athlete1 = new Athlete("Dave");

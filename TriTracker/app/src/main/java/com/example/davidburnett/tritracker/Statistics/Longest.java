@@ -37,7 +37,13 @@ public class Longest implements Statistic {
 
     public void resultsPrint(ArrayList<Athlete> results){
         int position = 1;
+        String format = "| %-8s | %-16s | %-14s| %n";
+        System.out.println();
         System.out.println("LONGEST " + this.discipline + " RESULTS");
+        System.out.println("===========+==================+================");
+        System.out.printf(format, "POSITION", "NAME", "DISTANCE (km)");
+        System.out.println("===========+==================+================");
+
 
         for (Athlete athlete: results){
 
@@ -50,11 +56,14 @@ public class Longest implements Statistic {
                 }
             }
 
-            System.out.println(
-                            "Position: " + position +
-                            ", Name: " + athlete.getName() +
-                            " , Distance: " + athleteDistance + "m");
+            // prints the athletes stats to terminal
+            System.out.printf(format, position, athlete.getName(), athleteDistance);
+            System.out.println("-----------+------------------+----------------");
+
+
             position ++;
+
+
         }
     }
 

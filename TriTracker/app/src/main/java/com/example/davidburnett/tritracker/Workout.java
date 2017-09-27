@@ -19,14 +19,11 @@ import javax.xml.datatype.Duration;
 
 public class Workout {
 
-    private String name;
     private Discipline discipline;
     private String dateString;
     private Calendar date;
     private long time;
     private int distance;
-
-    private String timeString;
 
 
     public Workout(Discipline discipline, String dateString, int distance, long time) {
@@ -34,22 +31,20 @@ public class Workout {
         this.distance = distance;
         this.discipline = discipline;
         this.time = time;
-        date = null;
-//        time = null;
-//        convertDateTimeFromString();
+        date = convertDateTimeFromString();
     }
 
-
-    public String getName() {
-        return name;
-    }
 
     public Discipline getDiscipline() {
         return discipline;
     }
 
-    public Calendar getDate() {
-        return date;
+    public int getMonth() {
+        return date.get(Calendar.MONTH) + 1;
+    }
+
+    public int getYear() {
+        return date.get(Calendar.YEAR);
     }
 
     public int getDistance() {
@@ -67,22 +62,19 @@ public class Workout {
         return pace;
     }
 
-    public void convertDateTimeFromString() {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-//        date = Calendar.getInstance();
+    public Calendar convertDateTimeFromString() {
+        try {
+            date = Calendar.getInstance();
 
-//        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
-//        time = Calendar.getInstance();
-//
-//        try {
-//
-//            Date timeA = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH).parse(timeString);
-//            date.setTime(timeA);
-//
-//
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+
+            date.setTime(format.parse(dateString));
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return date;
     }
 
     public static Comparator<Workout> distanceComparator = new Comparator<Workout>() {
@@ -100,12 +92,4 @@ public class Workout {
                     (workoutB.getTime() == workoutA.getTime() ? 0 : 1));
         }
     };
-
-//    @Override
-//    public String toString() {
-//        return "Distance:" + this.distance;
-//    }
-
-
-
 }

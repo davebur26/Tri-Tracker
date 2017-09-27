@@ -38,8 +38,6 @@ public class DistanceSorterTest {
 
         sorter = new Sorter(workouts);
         sortedWorkoutByDistance = sorter.workoutByDistance(Order.HiToLo);
-        System.out.println(sortedWorkoutByDistance);
-        System.out.println(athlete.getDisciplineLog(Discipline.RUN));
     }
 
 
