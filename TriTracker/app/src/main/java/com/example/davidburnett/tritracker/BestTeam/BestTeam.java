@@ -3,9 +3,7 @@ package com.example.davidburnett.tritracker.BestTeam;
 import com.example.davidburnett.tritracker.Athlete;
 import com.example.davidburnett.tritracker.Discipline;
 import com.example.davidburnett.tritracker.Statistics.Quickest;
-
 import java.util.ArrayList;
-import java.util.Formatter;
 
 /**
  * Created by davidburnett on 26/09/2017.
@@ -72,11 +70,17 @@ public class BestTeam{
 
     public void resultsPrint(){
         String format = "| %-10s | %-16s |%n";
+        System.out.println();
+        System.out.println(" BEST " + this.raceType + " DISTANCE TEAM");
+        System.out.println("+============+==================+");
+
         System.out.printf(format, "DISCIPLINE","NAME");
         System.out.println("+============+==================+");
         System.out.printf(format, "Swimmer", bestTeam[0].getName());
         System.out.printf(format, "Biker", bestTeam[1].getName());
         System.out.printf(format, "Runner", bestTeam[2].getName());
+        System.out.println("+============+==================+");
+
     }
 
     public Athlete getAthlete(Discipline discipline) {
