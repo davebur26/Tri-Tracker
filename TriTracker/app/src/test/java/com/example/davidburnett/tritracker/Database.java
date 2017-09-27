@@ -119,66 +119,66 @@ public class Database {
         workout16 = new Workout(Discipline.RUN, "22/12/17",23300, 5000);
         workout17 = new Workout(Discipline.RUN, "22/11/17",29800, 6000);
 
-        workout18 = new Workout(Discipline.RUN, "22/11/17",45000, 12600);
-        workout19 = new Workout(Discipline.RUN, "22/10/17",43000, 12000);
-        workout20 = new Workout(Discipline.RUN, "22/10/17",44000, 13000);
+        workout18 = new Workout(Discipline.RUN, "22/11/17",45014, 12600);
+        workout19 = new Workout(Discipline.RUN, "22/10/17",43698, 12000);
+        workout20 = new Workout(Discipline.RUN, "22/10/17",44012, 13000);
         workout21 = new Workout(Discipline.RUN, "22/09/17",43500, 12800);
-        workout22 = new Workout(Discipline.RUN, "22/09/17",45000, 12750);
-        workout23 = new Workout(Discipline.RUN, "22/09/17",48000, 13400);
-        workout24 = new Workout(Discipline.RUN, "23/08/17",20000, 94567);
+        workout22 = new Workout(Discipline.RUN, "22/09/17",45789, 12750);
+        workout23 = new Workout(Discipline.RUN, "22/09/17",48123, 13400);
+        workout24 = new Workout(Discipline.RUN, "23/08/17",48045, 9456);
 
           // BIKES
 
         workout25 = new Workout(Discipline.BIKE, "22/09/17",19990, 1609);
         workout26 = new Workout(Discipline.BIKE, "22/09/17",20000, 1789);
-        workout27 = new Workout(Discipline.BIKE, "22/10/17",20000, 1898);
-        workout28 = new Workout(Discipline.BIKE, "22/10/17",20000, 1567);
+        workout27 = new Workout(Discipline.BIKE, "22/10/17",20105, 1898);
+        workout28 = new Workout(Discipline.BIKE, "22/10/17",20235, 1567);
         workout29 = new Workout(Discipline.BIKE, "22/11/17",32000, 2000);
-        workout30 = new Workout(Discipline.BIKE, "22/11/17",24000, 1800);
-        workout31 = new Workout(Discipline.BIKE, "22/12/17",25000, 1765);
-        workout32 = new Workout(Discipline.BIKE, "22/09/17",20000, 1876);
+        workout30 = new Workout(Discipline.BIKE, "22/11/17",24012, 1800);
+        workout31 = new Workout(Discipline.BIKE, "22/12/17",25045, 1765);
+        workout32 = new Workout(Discipline.BIKE, "22/09/17",20123, 1876);
 
-        workout33 = new Workout(Discipline.BIKE, "22/08/17",50000, 3213);
-        workout34 = new Workout(Discipline.BIKE, "22/09/17",50000, 3344);
-        workout35 = new Workout(Discipline.BIKE, "22/11/17",50000, 3541);
-        workout36 = new Workout(Discipline.BIKE, "22/12/17",50000, 3409);
-        workout37 = new Workout(Discipline.BIKE, "22/12/17",50000, 3487);
+        workout33 = new Workout(Discipline.BIKE, "22/08/17",48000, 3213);
+        workout34 = new Workout(Discipline.BIKE, "22/09/17",48965, 3344);
+        workout35 = new Workout(Discipline.BIKE, "22/11/17",52145, 3541);
+        workout36 = new Workout(Discipline.BIKE, "22/12/17",51014, 3409);
+        workout37 = new Workout(Discipline.BIKE, "22/12/17",48975, 3487);
 
-        workout38 = new Workout(Discipline.BIKE, "22/11/17",100000, 7987);
-        workout39 = new Workout(Discipline.BIKE, "22/11/17",100000, 7656);
-        workout40 = new Workout(Discipline.BIKE, "22/09/17",100000, 7120);
-        workout41 = new Workout(Discipline.BIKE, "22/09/17",100000, 7639);
-        workout42 = new Workout(Discipline.BIKE, "22/12/17",100000, 7676);
+        workout38 = new Workout(Discipline.BIKE, "22/11/17",92451, 7987);
+        workout39 = new Workout(Discipline.BIKE, "22/11/17",94578, 7656);
+        workout40 = new Workout(Discipline.BIKE, "22/09/17",97321, 7120);
+        workout41 = new Workout(Discipline.BIKE, "22/09/17",97854, 7639);
+        workout42 = new Workout(Discipline.BIKE, "22/12/17",99874, 7676);
 
-        workout43 = new Workout(Discipline.BIKE, "22/12/17",180000, 14567);
-        workout44 = new Workout(Discipline.BIKE, "22/11/17",180000, 15463);
-        workout45 = new Workout(Discipline.BIKE, "22/11/17",180000, 18787);
-        workout46 = new Workout(Discipline.BIKE, "22/12/17",180000, 20000);
-        workout47 = new Workout(Discipline.BIKE, "22/09/17",180000, 19876);
-        workout48 = new Workout(Discipline.BIKE, "23/09/17",180000, 16345);
+        workout43 = new Workout(Discipline.BIKE, "22/12/17",180045, 14567);
+        workout44 = new Workout(Discipline.BIKE, "22/11/17",183456, 15463);
+        workout45 = new Workout(Discipline.BIKE, "22/11/17",182101, 18787);
+        workout46 = new Workout(Discipline.BIKE, "22/12/17",181102, 20000);
+        workout47 = new Workout(Discipline.BIKE, "22/09/17",180456, 19876);
+        workout48 = new Workout(Discipline.BIKE, "23/09/17",180123, 16345);
 
         // SWIMS
 
         workout49 = new Workout(Discipline.SWIM, "22/09/17",743, 720);
         workout50 = new Workout(Discipline.SWIM, "22/10/17",748, 788);
         workout51 = new Workout(Discipline.SWIM, "22/12/17",750, 678);
-        workout52 = new Workout(Discipline.SWIM, "22/09/17",750, 798);
-        workout53 = new Workout(Discipline.SWIM, "22/10/17",750, 765);
-        workout54 = new Workout(Discipline.SWIM, "22/11/17",750, 890);
+        workout52 = new Workout(Discipline.SWIM, "22/09/17",754, 798);
+        workout53 = new Workout(Discipline.SWIM, "22/10/17",768, 765);
+        workout54 = new Workout(Discipline.SWIM, "22/11/17",777, 890);
 
-        workout55 = new Workout(Discipline.SWIM, "22/12/17",1500, 2000);
-        workout56 = new Workout(Discipline.SWIM, "22/08/17",1500, 2100);
-        workout57 = new Workout(Discipline.SWIM, "22/09/17",1500, 2340);
-        workout58 = new Workout(Discipline.SWIM, "22/09/17",1500, 2131);
-        workout59 = new Workout(Discipline.SWIM, "22/09/17",1500, 2345);
-        workout60 = new Workout(Discipline.SWIM, "22/10/17",1500, 3409);
-        workout61 = new Workout(Discipline.SWIM, "22/10/17",1500, 3487);
+        workout55 = new Workout(Discipline.SWIM, "22/12/17",1504, 2000);
+        workout56 = new Workout(Discipline.SWIM, "22/08/17",1641, 2100);
+        workout57 = new Workout(Discipline.SWIM, "22/09/17",1871, 2340);
+        workout58 = new Workout(Discipline.SWIM, "22/09/17",1784, 2131);
+        workout59 = new Workout(Discipline.SWIM, "22/09/17",1645, 2345);
+        workout60 = new Workout(Discipline.SWIM, "22/10/17",1545, 3409);
+        workout61 = new Workout(Discipline.SWIM, "22/10/17",1512, 3487);
 
-        workout62 = new Workout(Discipline.SWIM, "22/12/17",1900, 4000);
-        workout63 = new Workout(Discipline.SWIM, "22/12/17",1900, 4123);
-        workout64 = new Workout(Discipline.SWIM, "22/09/17",1900, 4312);
-        workout65 = new Workout(Discipline.SWIM, "22/09/17",1900, 4512);
-        workout66 = new Workout(Discipline.SWIM, "22/10/17",1900, 4123);
+        workout62 = new Workout(Discipline.SWIM, "22/12/17",1944, 4000);
+        workout63 = new Workout(Discipline.SWIM, "22/12/17",1956, 4123);
+        workout64 = new Workout(Discipline.SWIM, "22/09/17",1910, 4312);
+        workout65 = new Workout(Discipline.SWIM, "22/09/17",2010, 4512);
+        workout66 = new Workout(Discipline.SWIM, "22/10/17",2323, 4123);
 
         workout67 = new Workout(Discipline.SWIM, "22/11/17",3809, 8098);
         workout68 = new Workout(Discipline.SWIM, "22/12/17",3963, 9999);

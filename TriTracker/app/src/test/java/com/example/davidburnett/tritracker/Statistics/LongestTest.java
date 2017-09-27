@@ -32,23 +32,23 @@ public class LongestTest {
 
     @Test
     public void testLongestSwim() {
-        longestRun = new Longest(Discipline.SWIM);
+        longestRun = new Longest(Discipline.SWIM,300, 17,9);
         resultsRun = longestRun.statForAthletes(athletesToAnalyse);
-        assertEquals("Sally", resultsRun.get(0).getName());
+        assertEquals("Barry", resultsRun.get(0).getName());
     }
 
     @Test
     public void testLongestBike(){
         longestBike = new Longest(Discipline.BIKE);
         resultsBike = longestBike.statForAthletes(athletesToAnalyse);
-        assertEquals("Dave", resultsBike.get(0).getName());
+        assertEquals("Sally", resultsBike.get(0).getName());
     }
 
     @Test
     public void testLongestRun(){
-        longestBike = new Longest(Discipline.RUN);
+        longestBike = new Longest(Discipline.RUN, 20, 17);
         resultsBike = longestBike.statForAthletes(athletesToAnalyse);
-        assertEquals("Dave", resultsBike.get(0).getName());
+        assertEquals("Claire", resultsBike.get(0).getName());
     }
 
 

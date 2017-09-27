@@ -48,8 +48,6 @@ public class Quickest implements Statistic{
             // gets the athlete's workouts for specified discipline
             ArrayList<Workout> athleteDisciplineLog = athlete.getDisciplineLog(this.discipline);
 
-            System.out.println(month);
-
             // checks if the discipline log is null
             if (athleteDisciplineLog != null){
                 for (Workout workout: athleteDisciplineLog) {
@@ -57,8 +55,10 @@ public class Quickest implements Statistic{
                     if (workout.getDistance() < this.distance) {
                         // add workout to removal array if true
                         workoutToRemove.add(workout);
+                        //not overridden if year = 0. ignores if year matches year being filtered
                     } else if (year != 0 && workout.getYear()!= year){
                         workoutToRemove.add(workout);
+                        //not overridden if month = 0. ignores if month matches year being filtered
                     } else if (year !=0 && month !=0 && workout.getMonth() != month){
                         workoutToRemove.add(workout);
                     }
@@ -97,7 +97,12 @@ public class Quickest implements Statistic{
 
         String format = "| %-8s | %-16s | %-15s| %-15s| %-14s| %n";
         System.out.println();
-        System.out.println("QUICKEST " + (this.distance/1000) + "KM " + this.discipline + " RESULTS");
+        System.out.println("QUICKEST " + this.discipline + " RESULTS");
+        if(distance != Integer.MAX_VALUE) System.out.println("DETAILS:");
+        if(distance != Integer.MAX_VALUE) System.out.print("MINIMUM DISTANCE: " + distance/1000 + " km");
+        if(year > 0)System.out.print(" // YEAR: " + year);
+        if(month > 0)System.out.print(" // MONTH: " + month);
+        System.out.println();
         System.out.println("===========+==================+================+================+================");
         System.out.printf(format, "POSITION", "NAME", "PACE (mins/km)", "TIME(hh/mm/ss)", "DISTANCE (km)");
         System.out.println("===========+==================+================+================+================");

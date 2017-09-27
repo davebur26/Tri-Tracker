@@ -28,10 +28,10 @@ public class QuickestTest {
 
     @Test
     public void testQuickestRun(){
-        quickest10kmRun = new Quickest(Discipline.RUN, 10000, 17, 8);
+        quickest10kmRun = new Quickest(Discipline.RUN, 10000, 17, 9);
         results10kmRun = quickest10kmRun.statForAthletes(athletesToAnalyse);
         quickest10kmRun.resultsPrint(results10kmRun);
 
-        assertEquals("Sally", results10kmRun.get(0).getName());
+        assertEquals("Barry", results10kmRun.get(0).getName());
     }
 }
