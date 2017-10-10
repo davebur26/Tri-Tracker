@@ -18,7 +18,6 @@ public class Athlete {
             activityLog = new HashMap<>();
         }
 
-
         public String getName() {
             return name;
         }

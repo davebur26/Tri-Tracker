@@ -26,6 +26,7 @@ public class Quickest implements Statistic{
         this.discipline = discipline;
         this.distance = distance;
     }
+
     public Quickest(Discipline discipline, int distance, int year){
         this.discipline = discipline;
         this.distance = distance;
@@ -160,7 +161,7 @@ public class Quickest implements Statistic{
         return String.format("%2s:%2s", minute.toString(), second.toString());
     }
 
-      // Runner for all functions
+       //Runner for all functions
     public ArrayList<Athlete> statForAthletes(ArrayList<Athlete> athletesToAnalyse){
         removeWorkoutsThatAreTooShort(athletesToAnalyse);
         sortAthletesIndividualWorkoutsQuickestFirst(athletesToAnalyse);

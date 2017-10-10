@@ -28,7 +28,7 @@ public class QuickestTest {
 
     @Test
     public void testQuickestRun(){
-        quickest10kmRun = new Quickest(Discipline.RUN, 10000, 17, 9);
+        quickest10kmRun = new Quickest(Discipline.RUN, 5000);
         results10kmRun = quickest10kmRun.statForAthletes(athletesToAnalyse);
         quickest10kmRun.resultsPrint(results10kmRun);
 
